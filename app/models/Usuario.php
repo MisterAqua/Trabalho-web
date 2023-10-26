@@ -71,5 +71,23 @@ class Usuario {
 
     return $usuario;
   }
+
+  public function buscarPorEmail($email) {
+    global $conn;
+
+    $stmt = $conn->prepare("SELECT * FROM usuario WHERE email = ?");
+    $stmt->bind_param("s", $email);
+
+    if ($stmt->execute()) {
+      $resultado = $stmt->get_result();
+      $usuario = $resultado->fetch_object();
+
+      // Retorna um objeto usuário ou null se não encontrado
+      return $usuario;
+    } else {
+      // Log ou trate o erro conforme necessário
+      return null;
+    }
+  }
 }
 ?>
