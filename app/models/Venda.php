@@ -1,5 +1,5 @@
 <?php
-require_once '../config/db.php';
+include_once 'C:\xampp\htdocs\Trabalho-web\config\db.php';
 
 class Venda {
   public $id;
@@ -8,11 +8,12 @@ class Venda {
 
   public function criar() {
     global $conn;
-    $stmt = $conn->prepare("INSERT INTO venda (valor_total, id_cliente) VALUES (?, ?)");
+    
+    $stmt = $conn->prepare("INSERT INTO venda (id, valor_total, id_cliente) VALUES (retornaIDMAX(), ?, ?)");
     $stmt->bind_param("di", $this->valor_total, $this->id_cliente);
     
     if ($stmt->execute()) {
-      $this->id = $conn->insert_id;
+      $this->id = $conn->insert_id; // Armazena o último ID inserido
       return true;
     } else {
       return false;

@@ -1,5 +1,5 @@
 <?php
-require_once '../config/db.php';
+include_once '../../config/db.php';
 
 class Usuario {
   public $id;
@@ -45,10 +45,10 @@ class Usuario {
     return $stmt->execute();
   }
 
-  public function deletar() {
+  public function deletar($id) {
     global $conn;
     $stmt = $conn->prepare("DELETE FROM usuarios WHERE id = ?");
-    $stmt->bind_param("i", $this->id);
+    $stmt->bind_param("i", $this->$id);
     
     return $stmt->execute();
   }

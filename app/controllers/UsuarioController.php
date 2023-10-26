@@ -73,9 +73,9 @@ class UsuarioController {
       session_start();
       $_SESSION['usuario_id'] = $usuarioEncontrado->id;
       $_SESSION['usuario_nome'] = $usuarioEncontrado->nome;
-      header('Location: /caminho/para/pagina/inicial');
+      header('Location: ../../public/vendas.php');
     } else {
-      header('Location: /caminho/para/pagina/de/login?erro=1');
+      header('Location: ../../public/vendas.php');
     }
     exit;
   }

@@ -1,5 +1,5 @@
 <?php
-include_once 'Carrinho.php';
+include_once '../models/Carrinho.php';
 
 class CarrinhoController {
 

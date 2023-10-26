@@ -1,5 +1,5 @@
 <?php
-require_once '../config/db.php';
+include_once 'C:\xampp\htdocs\Trabalho-web\config\db.php';
 
 class Produto {
   public $id;

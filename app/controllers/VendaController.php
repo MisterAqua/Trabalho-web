@@ -1,5 +1,5 @@
 <?php
-include_once 'Venda.php';
+include_once '../app/models/Venda.php';
 
 class VendaController {
 
@@ -9,6 +9,7 @@ class VendaController {
     $venda->id_cliente = $id_cliente;
 
     if ($venda->criar()) {
+      $_SESSION['id_venda'] = $venda->id; // Armazena o ID da venda na sessão
       return $venda;
     } else {
       return false;

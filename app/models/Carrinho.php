@@ -1,5 +1,5 @@
 <?php
-require_once '../config/db.php';
+include_once '../../config/db.php';
 
 class Carrinho {
   public $id;
